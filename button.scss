@@ -1,0 +1,50 @@
+// button.scss
+
+@import "ua";
+
+%button {
+    display: inline-block;
+
+    margin: 0.5rem;
+    padding: 0.5rem 0.6rem 0.4rem 0.6rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.8);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+
+    position: relative;
+
+    font-family: sans-serif;
+    font-weight: bold;
+
+    text-decoration: none;
+    text-shadow: rgba(255, 255, 255, 0.5) 0 1px 0;
+
+    background-image: radial-gradient(ellipse farthest-corner at center top , rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+
+    box-shadow:
+        // inner shadow
+        inset rgba(255, 255, 255, 0.60) 0  0.3rem 0.3rem,
+        inset rgba(0,   0,   0,   0.15) 0 -0.1rem 0.3rem,
+        // drop shadow
+        rgba(0, 0, 0, 0.2) 0.2rem 0.2rem 2px;
+
+    @include erace-vendor-support-diffrence(user-select, none);
+
+    transition: background 0.2s ease-in-out;
+
+    &:active {
+        background-image: radial-gradient(ellipse farthest-corner at center top , rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 100%);
+
+        box-shadow:
+            // inner shadow
+            inset rgba(255, 255, 255, 0.6) 0  0.3rem 0.3rem,
+            inset rgba(0,   0,   0,   0.2) 0 -0.1rem 0.3rem;
+
+        @include erace-vendor-support-diffrence(transform, translate(0.2rem, 0.2rem));
+    }
+
+    &:focus {
+        outline: none;
+    }
+}
+

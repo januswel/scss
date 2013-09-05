@@ -1,0 +1,106 @@
+@import "ua";
+
+%absolute-center {
+    margin: auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+// transform
+// Advantages:
+//     Variable height content
+//     Requires minimal code
+//
+// Caveats:
+//     Won't work in IE8
+//     Need vendor prefixes
+//     Can interfere with other transform effects
+//     Results in blurry rendering of edges and text in some cases
+%transform {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @include erase-vendor-support-diffrence(transform, translate(-50%, -50%));
+}
+
+// table-cell
+// Advantages:
+//     Variable height content
+//     Content overflows by stretching the parent element
+//     Works well cross-browser
+//
+// Caveats:
+//     Requires extra markup
+%table-cell-background {
+    display: table;
+    width: 100%;
+}
+%table-cell-container {
+    vertical-align: middle;
+    display: table-cell;
+}
+%table-cell {
+    margin: 0 auto;
+}
+
+// inline-block
+// Advantages:
+//     Variable height content
+//     Content overflows by stretching the parent element
+//     Works well cross-browser, and can be adapted for IE7 support (view the CSS to see)
+//
+// Caveats:
+//     Requires a container
+//     Relies on margin-left: -0.25em; to horizontally center correctly, but may need to be adjusted for different fonts/sizes
+//     Content block's width must be declared to be no wider than 100% of the container minus 0.25em.
+%inline-block-container {
+    text-align: center;
+    overflow: auto;
+
+    &:after {
+        display: inline-block;
+        vertical-align: middle;
+        content: '';
+        height: 100%;
+        margin-left: -0.25em;
+    }
+}
+%inline-block {
+    display: inline-block;
+    vertical-align: middle;
+    max-width: 99%;
+    text-align: left;
+}
+
+// flexbox
+// Advantages:
+//     Content can be any width or height, even overflows gracefully
+//     Can be used for more advanced layout techniques.
+//
+// Caveats:
+//     No IE8-9 support
+//     Requires a container or styles on the body
+//     Requires many vendor prefixes with different syntaxes to work on modern browsers
+//     Possible performance issues
+%flexbox {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+}
