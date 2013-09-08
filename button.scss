@@ -28,7 +28,7 @@
         // drop shadow
         rgba(0, 0, 0, 0.2) 0.2rem 0.2rem 2px;
 
-    @include erace-vendor-support-diffrence(user-select, none);
+    @include erace-vendor-support-difference(user-select, none);
 
     transition: background 0.2s ease-in-out;
 
@@ -40,7 +40,7 @@
             inset rgba(255, 255, 255, 0.6) 0  0.3rem 0.3rem,
             inset rgba(0,   0,   0,   0.2) 0 -0.1rem 0.3rem;
 
-        @include erace-vendor-support-diffrence(transform, translate(0.2rem, 0.2rem));
+        @include erace-vendor-support-difference(transform, translate(0.2rem, 0.2rem));
     }
 
     &:focus {

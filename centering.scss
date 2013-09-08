@@ -23,7 +23,7 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    @include erase-vendor-support-diffrence(transform, translate(-50%, -50%));
+    @include erase-vendor-support-difference(transform, translate(-50%, -50%));
 }
 
 // table-cell
